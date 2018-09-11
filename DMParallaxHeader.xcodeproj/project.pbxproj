@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		B63DFD1C21472FD500FF570C /* DMParallaxHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */; };
+		B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */; };
+		B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */; };
+		B63DFD292147441B00FF570C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD282147441B00FF570C /* Extensions.swift */; };
+		B63DFD2B2147469D00FF570C /* DMParallaxScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B63DFD1721472FD500FF570C /* DMParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMParallaxHeader.h; sourceTree = "<group>"; };
 		B63DFD1B21472FD500FF570C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeader.swift; sourceTree = "<group>"; };
+		B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderMode.swift; sourceTree = "<group>"; };
+		B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderDelegate.swift; sourceTree = "<group>"; };
+		B63DFD282147441B00FF570C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */,
+				B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */,
+				B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */,
+				B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */,
+				B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */,
+				B63DFD282147441B00FF570C /* Extensions.swift */,
 				B63DFD1B21472FD500FF570C /* Info.plist */,
 			);
 			path = DMParallaxHeader;
@@ -95,6 +110,7 @@
 				TargetAttributes = {
 					B63DFD1621472FD500FF570C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -130,6 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */,
+				B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */,
+				B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */,
+				B63DFD292147441B00FF570C /* Extensions.swift in Sources */,
+				B63DFD2B2147469D00FF570C /* DMParallaxScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +280,7 @@
 		B63DFD2021472FD500FF570C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -276,6 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.DMParallaxHeader;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +307,7 @@
 		B63DFD2121472FD500FF570C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
