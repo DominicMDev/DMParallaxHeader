@@ -7,15 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80B7546F214842E0009F0899 /* DMScrollViewDelegateForwarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */; };
+		80B7547721485BA6009F0899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7547621485BA6009F0899 /* AppDelegate.swift */; };
+		80B7547921485BA6009F0899 /* UITableViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7547821485BA6009F0899 /* UITableViewExample.swift */; };
+		80B7547C21485BA6009F0899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B7547A21485BA6009F0899 /* Main.storyboard */; };
+		80B7547E21485BAA009F0899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B7547D21485BAA009F0899 /* Assets.xcassets */; };
+		80B7548121485BAA009F0899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B7547F21485BAA009F0899 /* LaunchScreen.storyboard */; };
+		80B7548721485F39009F0899 /* DMScrollViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7548621485F39009F0899 /* DMScrollViewExample.swift */; };
+		80B7548A21486072009F0899 /* DMScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7548921486072009F0899 /* DMScrollViewController.swift */; };
+		80B7548C21486E15009F0899 /* DMFalconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7548B21486E15009F0899 /* DMFalconViewController.swift */; };
+		80B7548E21486E62009F0899 /* DMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7548D21486E62009F0899 /* DMWebViewController.swift */; };
+		80B75491214872DD009F0899 /* StarshipHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B7548821485F5B009F0899 /* StarshipHeader.xib */; };
 		B63DFD1C21472FD500FF570C /* DMParallaxHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */; };
 		B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */; };
 		B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */; };
 		B63DFD292147441B00FF570C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD282147441B00FF570C /* Extensions.swift */; };
-		B63DFD2B2147469D00FF570C /* DMParallaxScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */; };
+		B63DFD2B2147469D00FF570C /* DMScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2A2147469D00FF570C /* DMScrollView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		80B7548F21487214009F0899 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B63DFD0E21472FD500FF570C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B63DFD1621472FD500FF570C;
+			remoteInfo = DMParallaxHeader;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollViewDelegateForwarder.swift; sourceTree = "<group>"; };
+		80B7547421485BA6009F0899 /* DMParallaxHeaderExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMParallaxHeaderExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B7547621485BA6009F0899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		80B7547821485BA6009F0899 /* UITableViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExample.swift; sourceTree = "<group>"; };
+		80B7547B21485BA6009F0899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80B7547D21485BAA009F0899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80B7548021485BAA009F0899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80B7548221485BAA009F0899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80B7548621485F39009F0899 /* DMScrollViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollViewExample.swift; sourceTree = "<group>"; };
+		80B7548821485F5B009F0899 /* StarshipHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarshipHeader.xib; sourceTree = "<group>"; };
+		80B7548921486072009F0899 /* DMScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollViewController.swift; sourceTree = "<group>"; };
+		80B7548B21486E15009F0899 /* DMFalconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMFalconViewController.swift; sourceTree = "<group>"; };
+		80B7548D21486E62009F0899 /* DMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMWebViewController.swift; sourceTree = "<group>"; };
+		80B7549321488E19009F0899 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		80B7549421488E19009F0899 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		80B7549521488E19009F0899 /* DMParallaxHeader.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DMParallaxHeader.podspec; sourceTree = "<group>"; };
 		B63DFD1721472FD500FF570C /* DMParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMParallaxHeader.h; sourceTree = "<group>"; };
 		B63DFD1B21472FD500FF570C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -23,10 +60,17 @@
 		B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderMode.swift; sourceTree = "<group>"; };
 		B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderDelegate.swift; sourceTree = "<group>"; };
 		B63DFD282147441B00FF570C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxScrollView.swift; sourceTree = "<group>"; };
+		B63DFD2A2147469D00FF570C /* DMScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		80B7547121485BA6009F0899 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B63DFD1321472FD500FF570C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +81,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80B7547521485BA6009F0899 /* DMParallaxHeaderExample */ = {
+			isa = PBXGroup;
+			children = (
+				80B7547621485BA6009F0899 /* AppDelegate.swift */,
+				80B7547821485BA6009F0899 /* UITableViewExample.swift */,
+				80B7548621485F39009F0899 /* DMScrollViewExample.swift */,
+				80B7548B21486E15009F0899 /* DMFalconViewController.swift */,
+				80B7548D21486E62009F0899 /* DMWebViewController.swift */,
+				80B7547A21485BA6009F0899 /* Main.storyboard */,
+				80B7548821485F5B009F0899 /* StarshipHeader.xib */,
+				80B7547D21485BAA009F0899 /* Assets.xcassets */,
+				80B7547F21485BAA009F0899 /* LaunchScreen.storyboard */,
+				80B7548221485BAA009F0899 /* Info.plist */,
+			);
+			path = DMParallaxHeaderExample;
+			sourceTree = "<group>";
+		};
+		80B7549221488DFD009F0899 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				80B7549321488E19009F0899 /* LICENSE */,
+				80B7549521488E19009F0899 /* DMParallaxHeader.podspec */,
+				80B7549421488E19009F0899 /* README.md */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
 		B63DFD0D21472FD500FF570C = {
 			isa = PBXGroup;
 			children = (
+				80B7549221488DFD009F0899 /* Metadata */,
 				B63DFD1921472FD500FF570C /* DMParallaxHeader */,
+				80B7547521485BA6009F0899 /* DMParallaxHeaderExample */,
 				B63DFD1821472FD500FF570C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B63DFD1721472FD500FF570C /* DMParallaxHeader.framework */,
+				80B7547421485BA6009F0899 /* DMParallaxHeaderExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,12 +130,14 @@
 		B63DFD1921472FD500FF570C /* DMParallaxHeader */ = {
 			isa = PBXGroup;
 			children = (
-				B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */,
 				B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */,
-				B63DFD2A2147469D00FF570C /* DMParallaxScrollView.swift */,
-				B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */,
 				B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */,
+				B63DFD2A2147469D00FF570C /* DMScrollView.swift */,
+				80B7548921486072009F0899 /* DMScrollViewController.swift */,
+				80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */,
+				B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */,
 				B63DFD282147441B00FF570C /* Extensions.swift */,
+				B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */,
 				B63DFD1B21472FD500FF570C /* Info.plist */,
 			);
 			path = DMParallaxHeader;
@@ -81,6 +157,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		80B7547321485BA6009F0899 /* DMParallaxHeaderExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80B7548321485BAA009F0899 /* Build configuration list for PBXNativeTarget "DMParallaxHeaderExample" */;
+			buildPhases = (
+				80B7547021485BA6009F0899 /* Sources */,
+				80B7547121485BA6009F0899 /* Frameworks */,
+				80B7547221485BA6009F0899 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80B7549021487214009F0899 /* PBXTargetDependency */,
+			);
+			name = DMParallaxHeaderExample;
+			productName = DMParallaxHeaderExample;
+			productReference = 80B7547421485BA6009F0899 /* DMParallaxHeaderExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B63DFD1621472FD500FF570C /* DMParallaxHeader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B63DFD1F21472FD500FF570C /* Build configuration list for PBXNativeTarget "DMParallaxHeader" */;
@@ -105,9 +199,13 @@
 		B63DFD0E21472FD500FF570C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = DominicMiller;
 				TargetAttributes = {
+					80B7547321485BA6009F0899 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					B63DFD1621472FD500FF570C = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
@@ -120,6 +218,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B63DFD0D21472FD500FF570C;
 			productRefGroup = B63DFD1821472FD500FF570C /* Products */;
@@ -127,11 +226,23 @@
 			projectRoot = "";
 			targets = (
 				B63DFD1621472FD500FF570C /* DMParallaxHeader */,
+				80B7547321485BA6009F0899 /* DMParallaxHeaderExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		80B7547221485BA6009F0899 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B7548121485BAA009F0899 /* LaunchScreen.storyboard in Resources */,
+				80B7547E21485BAA009F0899 /* Assets.xcassets in Resources */,
+				80B75491214872DD009F0899 /* StarshipHeader.xib in Resources */,
+				80B7547C21485BA6009F0899 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B63DFD1521472FD500FF570C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +253,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		80B7547021485BA6009F0899 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B7547921485BA6009F0899 /* UITableViewExample.swift in Sources */,
+				80B7547721485BA6009F0899 /* AppDelegate.swift in Sources */,
+				80B7548C21486E15009F0899 /* DMFalconViewController.swift in Sources */,
+				80B7548E21486E62009F0899 /* DMWebViewController.swift in Sources */,
+				80B7548721485F39009F0899 /* DMScrollViewExample.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B63DFD1221472FD500FF570C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,14 +272,79 @@
 				B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */,
 				B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */,
 				B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */,
+				80B7546F214842E0009F0899 /* DMScrollViewDelegateForwarder.swift in Sources */,
+				80B7548A21486072009F0899 /* DMScrollViewController.swift in Sources */,
 				B63DFD292147441B00FF570C /* Extensions.swift in Sources */,
-				B63DFD2B2147469D00FF570C /* DMParallaxScrollView.swift in Sources */,
+				B63DFD2B2147469D00FF570C /* DMScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		80B7549021487214009F0899 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B63DFD1621472FD500FF570C /* DMParallaxHeader */;
+			targetProxy = 80B7548F21487214009F0899 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		80B7547A21485BA6009F0899 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B7547B21485BA6009F0899 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		80B7547F21485BAA009F0899 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B7548021485BAA009F0899 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		80B7548421485BAA009F0899 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = DMParallaxHeaderExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.DMParallaxHeaderExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80B7548521485BAA009F0899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = DMParallaxHeaderExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.DMParallaxHeaderExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B63DFD1D21472FD500FF570C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -333,6 +521,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		80B7548321485BAA009F0899 /* Build configuration list for PBXNativeTarget "DMParallaxHeaderExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B7548421485BAA009F0899 /* Debug */,
+				80B7548521485BAA009F0899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B63DFD1121472FD500FF570C /* Build configuration list for PBXProject "DMParallaxHeader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

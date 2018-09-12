@@ -11,7 +11,7 @@ import ObjectiveC
 
 class DMParallaxView: UIView {
     
-    static var KVOContext = 0
+    static var KVOContext = "kDMParallaxViewKVOContext"
     
     weak var parent: DMParallaxHeader!
     
@@ -33,16 +33,18 @@ class DMParallaxView: UIView {
 public class DMParallaxHeader: UIView {
     
     /*
-     * MARK: - Constants
-     */
-    
-    static var KVOContext = 0
-    
-    /*
      * MARK: - Instance Properties
      */
     
-    weak var scrollView: UIScrollView!
+    weak var scrollView: UIScrollView! {
+        didSet {
+            guard scrollView !== oldValue else { return }
+            adjustScrollViewTopInset(scrollView.contentInset.top + height)
+            scrollView.addSubview(contentView)
+            layoutContentView()
+            isObserving = true
+        }
+    }
     
     private var _contentView: UIView?
     
@@ -53,9 +55,12 @@ public class DMParallaxHeader: UIView {
             contentView.parent = self
             contentView.clipsToBounds = true
             _contentView = contentView
+            addSubview(contentView)
         }
         return _contentView!
     }
+    
+    var isObserving = false
     
     /// Delegate instance that adopt the DMScrollViewDelegate.
     @IBOutlet public weak var delegate: DMParallaxHeaderDelegate?
@@ -79,18 +84,28 @@ public class DMParallaxHeader: UIView {
     }
     
     /// The header's minimum height while scrolling up. 0 by default.
-    @IBInspectable public var minimumHeight: CGFloat = 0
+    @IBInspectable public var minimumHeight: CGFloat = 0 {
+        didSet { layoutContentView() }
+    }
     
     /// The parallax header behavior mode.
-    public var mode: DMParallaxHeaderMode = .bottom {
+    public var mode: DMParallaxHeaderMode = .fill {
         didSet {
             if mode != oldValue { updateConstraints() }
         }
     }
     
     /// The parallax header progress value.
-    public internal(set) var progress: CGFloat = 1
-    
+    public internal(set) var progress: CGFloat = 1 {
+        didSet {
+            if progress != oldValue &&
+                objectRespondsToSelector(delegate,
+                                         selector: #selector(DMParallaxHeaderDelegate.parallaxHeaderDidScroll(_:))) {
+                delegate!.parallaxHeaderDidScroll!(self)
+            }
+        }
+    }
+
     
     /*
      * MARK: - Constraints
@@ -114,44 +129,48 @@ public class DMParallaxHeader: UIView {
     func setCenterModeConstraints() {
         guard let view = view else { return }
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v": view]))
         view.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         view.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
     func setFillModeConstraints() {
         guard let view = view else { return }
+//        view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+//        view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+//        view.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+//        view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
     }
     
     func setTopFillModeConstraints() {
         guard let view = view else { return }
         let metrics = ["highPriority" : UILayoutPriority.defaultHigh, "height" : height] as [String : Any]
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v(>=height)]-0.0@highPriority-|",
-                                                                  metrics: metrics, views:["v" : view]))
+                                                                  metrics: metrics, views:["v":view]))
     }
     
     func setTopModeConstraints() {
         guard let view = view else { return }
         let metrics = ["height" : height]
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v(==height)]", metrics: metrics,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
     }
     
     func setBottomModeConstraints() {
         guard let view = view else { return }
         let metrics = ["height" : height]
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v(==height)]|", metrics: metrics,
-                                                                  views: ["v" : view]))
+                                                                  views: ["v":view]))
     }
     
     /*
@@ -159,17 +178,18 @@ public class DMParallaxHeader: UIView {
      */
     
     func layoutContentView() {
-        let minimumHeight   = min(self.minimumHeight, height)
+        let minHeight   = min(minimumHeight, height)
         let relativeYOffset = scrollView.contentOffset.y + scrollView.contentInset.top - height
         let relativeHeight  = -relativeYOffset
         
         let frame = CGRect(x: 0, y: relativeYOffset,
-                           width: scrollView.frame.width, height: max(relativeHeight, minimumHeight))
+                           width: scrollView.frame.width,
+                           height: max(relativeHeight, minHeight))
         
         contentView.frame = frame
         
         let div = height - minimumHeight
-        progress = (contentView.frame.height - minimumHeight) / (div != 0 ? 1 : height)
+        progress = (contentView.frame.height - minimumHeight) / div
     }
     
     func adjustScrollViewTopInset(_ top: CGFloat) {
@@ -189,7 +209,7 @@ public class DMParallaxHeader: UIView {
     
     //This is where the magic happens...
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if context == &DMParallaxHeader.KVOContext {
+        if context == &DMParallaxView.KVOContext {
             if keyPath == #keyPath(UIScrollView.contentOffset) {
                 layoutContentView()
             }
@@ -198,25 +218,4 @@ public class DMParallaxHeader: UIView {
         }
     }
 
-}
-
-public extension UIScrollView {
-    
-    static var ParallaxHeaderKey = "kDMParallaxHeader"
-
-    @objc public var parallaxHeader: DMParallaxHeader {
-        get {
-            var parallaxHeader = objc_getAssociatedObject(self, &UIScrollView.ParallaxHeaderKey) as? DMParallaxHeader
-            if parallaxHeader == nil {
-                parallaxHeader = DMParallaxHeader(frame: .zero)
-                self.parallaxHeader = parallaxHeader!
-            }
-            return parallaxHeader!
-        }
-        set {
-            newValue.scrollView = self
-            objc_setAssociatedObject(self, &UIScrollView.ParallaxHeaderKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
 }
