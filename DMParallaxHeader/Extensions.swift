@@ -15,7 +15,7 @@ extension NSObjectProtocol {
     }
 }
 
-public extension UIScrollView {
+extension UIScrollView {
     
     static var ParallaxHeaderKey = "kDMParallaxHeader"
     
@@ -36,7 +36,7 @@ public extension UIScrollView {
     
 }
 
-public extension UIScrollViewDelegate {
+extension UIScrollViewDelegate {
     func scrollView(_ scrollView: DMScrollView, shouldScrollWithSubView subView: UIScrollView) -> Bool {
         return true
     }

@@ -30,7 +30,7 @@ class DMParallaxView: UIView {
     }
 }
 
-public class DMParallaxHeader: UIView {
+open class DMParallaxHeader: UIView {
     
     /*
      * MARK: - Instance Properties
@@ -111,7 +111,7 @@ public class DMParallaxHeader: UIView {
      * MARK: - Constraints
      */
     
-    override public func updateConstraints() {
+    override open func updateConstraints() {
         guard let view = view else { return }
         view.removeFromSuperview()
         contentView.addSubview(view)
@@ -136,10 +136,6 @@ public class DMParallaxHeader: UIView {
     
     func setFillModeConstraints() {
         guard let view = view else { return }
-//        view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-//        view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-//        view.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-//        view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", metrics: nil,
                                                                   views: ["v":view]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v]|", metrics: nil,
@@ -208,7 +204,7 @@ public class DMParallaxHeader: UIView {
      */
     
     //This is where the magic happens...
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &DMParallaxView.KVOContext {
             if keyPath == #keyPath(UIScrollView.contentOffset) {
                 layoutContentView()

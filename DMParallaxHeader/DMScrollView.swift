@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
+open class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
     
     static var KVOContext = "kDMScrollViewKVOContext"
     
     var forwarder: DMScrollViewDelegateForwarder!
     var observedViews = [UIScrollView]()
     
-    public override var delegate: UIScrollViewDelegate? {
+    override open var delegate: UIScrollViewDelegate? {
         get { return forwarder.delegate }
         set {
             forwarder.delegate = newValue
@@ -101,7 +101,7 @@ public class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
     }
     
     //This is where the magic happens...
-    override public func observeValue(forKeyPath keyPath: String?, of object: Any?,
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?,
                                       change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard context == &DMScrollView.KVOContext && keyPath == #keyPath(UIScrollView.contentOffset) else {
             return super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)

@@ -158,17 +158,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7u-I5-9jx" customClass="WKWebView" customModule="WebKit">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-33-h7l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Z7u-I5-9jx" firstAttribute="top" secondItem="uij-nI-yiW" secondAttribute="top" id="1za-zA-DEn"/>
-                            <constraint firstItem="Z7u-I5-9jx" firstAttribute="leading" secondItem="uij-nI-yiW" secondAttribute="leading" id="DyC-Dd-9Fx"/>
-                            <constraint firstAttribute="trailing" secondItem="Z7u-I5-9jx" secondAttribute="trailing" id="PlI-vR-beF"/>
-                            <constraint firstItem="Z7u-I5-9jx" firstAttribute="bottom" secondItem="TzB-mG-2sg" secondAttribute="top" id="XHN-en-cHQ"/>
+                            <constraint firstItem="KB9-33-h7l" firstAttribute="leading" secondItem="uij-nI-yiW" secondAttribute="leading" id="0Jv-qU-1ZN"/>
+                            <constraint firstItem="TzB-mG-2sg" firstAttribute="top" secondItem="KB9-33-h7l" secondAttribute="bottom" id="AIz-tb-ACp"/>
+                            <constraint firstItem="KB9-33-h7l" firstAttribute="top" secondItem="uij-nI-yiW" secondAttribute="top" id="aE2-Tk-7hp"/>
+                            <constraint firstItem="KB9-33-h7l" firstAttribute="trailing" secondItem="uij-nI-yiW" secondAttribute="trailing" id="tbH-p5-wNX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -192,7 +197,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="webView" destination="Z7u-I5-9jx" id="tdi-yo-r5s"/>
+                        <outlet property="webView" destination="KB9-33-h7l" id="6Z6-7M-xWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKj-Mb-Ya3" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,7 @@
 import UIKit
 import ObjectiveC
 
-@objc public class DMScrollViewController: UIViewController {
+@objc open class DMScrollViewController: UIViewController {
     
     static var KVOContext = "kDMScrollViewControllerKVOContext"
     
@@ -86,11 +86,11 @@ import ObjectiveC
      *  MARK: - View Life Cycle
      */
     
-    override public func loadView() {
+    override open func loadView() {
         view = scrollView
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         scrollView.parallaxHeader.view = headerView
         scrollView.parallaxHeader.height = headerHeight
@@ -118,7 +118,7 @@ import ObjectiveC
         }
     }
     
-    public override func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollView.contentSize = scrollView.frame.size
         layoutChildViewController()
@@ -135,7 +135,7 @@ import ObjectiveC
      *  MARK: - KVO
      */
     
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?,
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?,
                                       change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard context == &DMScrollViewController.KVOContext else {
             return super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
