@@ -13,6 +13,10 @@ import ObjectiveC
     
     static var KVOContext = "kDMScrollViewControllerKVOContext"
     
+    @IBOutlet weak var headerView: UIView?
+    @IBInspectable var headerHeight: CGFloat = 100
+    @IBInspectable var headerMinimumHeight: CGFloat = 0
+    
     /// The scroll view container
     var _scrollView: DMScrollView?
     public var scrollView: DMScrollView {
@@ -76,11 +80,6 @@ import ObjectiveC
             }
         }
     }
-    
-    @IBOutlet weak var headerView: UIView?
-    @IBInspectable var headerHeight: CGFloat = 100
-    @IBInspectable var headerMinimumHeight: CGFloat = 0
-    
     
     /*
      *  MARK: - View Life Cycle
@@ -149,32 +148,4 @@ import ObjectiveC
         scrollView.parallaxHeader.removeObserver(self, forKeyPath: #keyPath(DMParallaxHeader.minimumHeight))
     }
     
-}
-
-public extension UIViewController {
-    var parallaxHeader: DMParallaxHeader? {
-        let parallaxHeader = objc_getAssociatedObject(self, &UIScrollView.ParallaxHeaderKey) as? DMParallaxHeader
-        if parallaxHeader == nil && parent != nil {
-            return parent!.parallaxHeader
-        }
-        return parallaxHeader
-    }
-}
-
-/// The DMParallaxHeaderSegue class creates a segue object to get the parallax header view controller from storyboard.
-public class DMParallaxHeaderSegue: UIStoryboardSegue {
-    override public func perform() {
-        guard source.isKind(of: DMScrollViewController.self) else { return }
-        let svc = source as! DMScrollViewController
-        svc.headerViewController = destination
-    }
-}
-
-/// The DMScrollViewControllerSegue class creates a segue object to get the child view controller from storyboard.
-public class DMScrollViewControllerSegue: UIStoryboardSegue {
-    override public func perform() {
-        guard source.isKind(of: DMScrollViewController.self) else { return }
-        let svc = source as! DMScrollViewController
-        svc.childViewController = destination
-    }
 }

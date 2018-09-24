@@ -30,7 +30,8 @@ class DMParallaxView: UIView {
     }
 }
 
-open class DMParallaxHeader: UIView {
+/// The `DMParallaxHeader` class represents a parallax header for `UIScrollView`.
+open class DMParallaxHeader: NSObject {
     
     /*
      * MARK: - Instance Properties
@@ -55,7 +56,6 @@ open class DMParallaxHeader: UIView {
             contentView.parent = self
             contentView.clipsToBounds = true
             _contentView = contentView
-            addSubview(contentView)
         }
         return _contentView!
     }
@@ -98,11 +98,8 @@ open class DMParallaxHeader: UIView {
     /// The parallax header progress value.
     public internal(set) var progress: CGFloat = 1 {
         didSet {
-            if progress != oldValue &&
-                objectRespondsToSelector(delegate,
-                                         selector: #selector(DMParallaxHeaderDelegate.parallaxHeaderDidScroll(_:))) {
-                delegate!.parallaxHeaderDidScroll!(self)
-            }
+            guard progress != oldValue else { return }
+            delegate?.parallaxHeaderDidScroll?(self)
         }
     }
 
@@ -111,7 +108,7 @@ open class DMParallaxHeader: UIView {
      * MARK: - Constraints
      */
     
-    override open func updateConstraints() {
+    open func updateConstraints() {
         guard let view = view else { return }
         view.removeFromSuperview()
         contentView.addSubview(view)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		809A8F382151CBD900A8376F /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A8F372151CBD900A8376F /* Segues.swift */; };
 		80B7546F214842E0009F0899 /* DMScrollViewDelegateForwarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */; };
 		80B7547721485BA6009F0899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7547621485BA6009F0899 /* AppDelegate.swift */; };
 		80B7547921485BA6009F0899 /* UITableViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7547821485BA6009F0899 /* UITableViewExample.swift */; };
@@ -21,8 +22,8 @@
 		B63DFD1C21472FD500FF570C /* DMParallaxHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */; };
 		B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */; };
-		B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */; };
-		B63DFD292147441B00FF570C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD282147441B00FF570C /* Extensions.swift */; };
+		B63DFD272147309E00FF570C /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD262147309E00FF570C /* Delegates.swift */; };
+		B63DFD292147441B00FF570C /* ParallaxHeaderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD282147441B00FF570C /* ParallaxHeaderExtensions.swift */; };
 		B63DFD2B2147469D00FF570C /* DMScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63DFD2A2147469D00FF570C /* DMScrollView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		809A8F372151CBD900A8376F /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollViewDelegateForwarder.swift; sourceTree = "<group>"; };
 		80B7547421485BA6009F0899 /* DMParallaxHeaderExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMParallaxHeaderExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7547621485BA6009F0899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,16 +52,16 @@
 		80B7548921486072009F0899 /* DMScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollViewController.swift; sourceTree = "<group>"; };
 		80B7548B21486E15009F0899 /* DMFalconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMFalconViewController.swift; sourceTree = "<group>"; };
 		80B7548D21486E62009F0899 /* DMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMWebViewController.swift; sourceTree = "<group>"; };
-		80B7549321488E19009F0899 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		80B7549321488E19009F0899 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		80B7549421488E19009F0899 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		80B7549521488E19009F0899 /* DMParallaxHeader.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DMParallaxHeader.podspec; sourceTree = "<group>"; };
+		80B7549521488E19009F0899 /* DMParallaxHeader.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = DMParallaxHeader.podspec; sourceTree = "<group>"; };
 		B63DFD1721472FD500FF570C /* DMParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMParallaxHeader.h; sourceTree = "<group>"; };
 		B63DFD1B21472FD500FF570C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeader.swift; sourceTree = "<group>"; };
 		B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderMode.swift; sourceTree = "<group>"; };
-		B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMParallaxHeaderDelegate.swift; sourceTree = "<group>"; };
-		B63DFD282147441B00FF570C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B63DFD262147309E00FF570C /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		B63DFD282147441B00FF570C /* ParallaxHeaderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderExtensions.swift; sourceTree = "<group>"; };
 		B63DFD2A2147469D00FF570C /* DMScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +103,7 @@
 		80B7549221488DFD009F0899 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				80B7549321488E19009F0899 /* LICENSE */,
+				80B7549321488E19009F0899 /* LICENSE.md */,
 				80B7549521488E19009F0899 /* DMParallaxHeader.podspec */,
 				80B7549421488E19009F0899 /* README.md */,
 			);
@@ -131,12 +133,13 @@
 			isa = PBXGroup;
 			children = (
 				B63DFD2221472FE900FF570C /* DMParallaxHeader.swift */,
-				B63DFD262147309E00FF570C /* DMParallaxHeaderDelegate.swift */,
 				B63DFD2A2147469D00FF570C /* DMScrollView.swift */,
 				80B7548921486072009F0899 /* DMScrollViewController.swift */,
+				B63DFD262147309E00FF570C /* Delegates.swift */,
 				80B7546E214842E0009F0899 /* DMScrollViewDelegateForwarder.swift */,
 				B63DFD242147303000FF570C /* DMParallaxHeaderMode.swift */,
-				B63DFD282147441B00FF570C /* Extensions.swift */,
+				B63DFD282147441B00FF570C /* ParallaxHeaderExtensions.swift */,
+				809A8F372151CBD900A8376F /* Segues.swift */,
 				B63DFD1A21472FD500FF570C /* DMParallaxHeader.h */,
 				B63DFD1B21472FD500FF570C /* Info.plist */,
 			);
@@ -271,10 +274,11 @@
 			files = (
 				B63DFD2321472FE900FF570C /* DMParallaxHeader.swift in Sources */,
 				B63DFD252147303000FF570C /* DMParallaxHeaderMode.swift in Sources */,
-				B63DFD272147309E00FF570C /* DMParallaxHeaderDelegate.swift in Sources */,
+				B63DFD272147309E00FF570C /* Delegates.swift in Sources */,
+				809A8F382151CBD900A8376F /* Segues.swift in Sources */,
 				80B7546F214842E0009F0899 /* DMScrollViewDelegateForwarder.swift in Sources */,
 				80B7548A21486072009F0899 /* DMScrollViewController.swift in Sources */,
-				B63DFD292147441B00FF570C /* Extensions.swift in Sources */,
+				B63DFD292147441B00FF570C /* ParallaxHeaderExtensions.swift in Sources */,
 				B63DFD2B2147469D00FF570C /* DMScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 584E8BNX6Z;
 				INFOPLIST_FILE = DMParallaxHeaderExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,6 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 584E8BNX6Z;
 				INFOPLIST_FILE = DMParallaxHeaderExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

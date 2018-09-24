@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The `DMScrollView` is a `UIScrollView` subclass with the ability to hook the vertical scroll from its subviews.
 open class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
     
     static var KVOContext = "kDMScrollViewKVOContext"
@@ -15,10 +16,11 @@ open class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
     var forwarder: DMScrollViewDelegateForwarder!
     var observedViews = [UIScrollView]()
     
+    /// - Warning: This value **must** be set as a `DMScrollViewDelegate`.
     override open var delegate: UIScrollViewDelegate? {
         get { return forwarder.delegate }
         set {
-            forwarder.delegate = newValue
+            forwarder.delegate = newValue as? DMScrollViewDelegate
             super.delegate = nil
             super.delegate = forwarder
         }
@@ -69,15 +71,11 @@ open class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
         // Tricky case: UITableViewWrapperView
         if scrollView.superview?.isKind(of: UITableView.self) ?? false { return false }
         
-        var shouldScroll = true
-        if let delegate = delegate {
-            shouldScroll = delegate.scrollView(self, shouldScrollWithSubView: scrollView)
-        }
+        let shouldScroll = forwarder.scrollView(self, shouldScrollWithSubView: scrollView)
         
         if shouldScroll {
             addObservedView(scrollView)
         }
-        
         return shouldScroll
     }
     
@@ -152,7 +150,6 @@ open class DMScrollView: UIScrollView, UIGestureRecognizerDelegate {
         observedViews.removeAll()
     }
     
-    // TODO: Figure out if this would work for both `DMParallaxScrollView` and `UIScrollView`
     func scrollView(_ scrollView: UIScrollView, setContentOffset offset: CGPoint) {
         isObserving = false
         scrollView.contentOffset = offset

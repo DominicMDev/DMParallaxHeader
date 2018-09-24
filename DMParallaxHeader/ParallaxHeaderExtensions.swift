@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  ParallaxHeaderExtensions.swift
 //  DMParallaxHeader
 //
 //  Created by Dominic on 9/10/18.
@@ -8,22 +8,15 @@
 
 import UIKit
 
-extension NSObjectProtocol {
-    func objectRespondsToSelector(_ object: NSObjectProtocol?, selector: Selector) -> Bool {
-        guard let _object = object else { return false }
-        return _object.responds(to: selector)
-    }
-}
-
 extension UIScrollView {
     
     static var ParallaxHeaderKey = "kDMParallaxHeader"
     
-    @objc public var parallaxHeader: DMParallaxHeader {
+    @IBOutlet public var parallaxHeader: DMParallaxHeader! {
         get {
             var parallaxHeader = objc_getAssociatedObject(self, &UIScrollView.ParallaxHeaderKey) as? DMParallaxHeader
             if parallaxHeader == nil {
-                parallaxHeader = DMParallaxHeader(frame: .zero)
+                parallaxHeader = DMParallaxHeader()
                 self.parallaxHeader = parallaxHeader!
             }
             return parallaxHeader!
@@ -36,8 +29,14 @@ extension UIScrollView {
     
 }
 
-extension UIScrollViewDelegate {
-    func scrollView(_ scrollView: DMScrollView, shouldScrollWithSubView subView: UIScrollView) -> Bool {
-        return true
+extension UIViewController {
+    
+    public var parallaxHeader: DMParallaxHeader? {
+        let parallaxHeader = objc_getAssociatedObject(self, &UIScrollView.ParallaxHeaderKey) as? DMParallaxHeader
+        if parallaxHeader == nil && parent != nil {
+            return parent!.parallaxHeader
+        }
+        return parallaxHeader
     }
+    
 }
