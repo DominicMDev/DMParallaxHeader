@@ -1,8 +1,9 @@
 # DMParallaxHeader
 
 [![Version](https://img.shields.io/cocoapods/v/DMParallaxHeader.svg?style=flat)](http://cocoapods.org/pods/DMParallaxHeader)
-[![License](https://img.shields.io/cocoapods/l/DMParallaxHeader.svg?style=flat)](http://cocoapods.org/pods/DMParallaxHeader)
+![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
 [![Platform](https://img.shields.io/cocoapods/p/DMParallaxHeader.svg?style=flat)](http://cocoapods.org/pods/DMParallaxHeader)
+[![License](https://img.shields.io/cocoapods/l/DMParallaxHeader.svg?style=flat)](http://cocoapods.org/pods/DMParallaxHeader)
 
 DMParallaxHeader is a Swift conversion from https://github.com/maxep/MXParallaxHeader.
 
