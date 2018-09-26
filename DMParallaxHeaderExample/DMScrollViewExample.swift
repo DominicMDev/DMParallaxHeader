@@ -65,7 +65,7 @@ class DMScrollViewExample: UIViewController, UITableViewDelegate, UITableViewDat
         
         var cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier)
         if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: CellIdentifier)
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: CellIdentifier)
         }
         cell!.textLabel!.text = String(format: "Row \(indexPath.row * 10)")
         cell!.backgroundColor = SpanichWhite;

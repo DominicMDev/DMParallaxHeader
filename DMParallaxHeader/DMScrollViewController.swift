@@ -34,15 +34,15 @@ import ObjectiveC
     public var headerViewController: UIViewController? {
         willSet {
             if let _headerViewController = headerViewController, _headerViewController.parent == self {
-                _headerViewController.willMove(toParentViewController: nil)
+                _headerViewController.willMove(toParent: nil)
                 _headerViewController.view.removeFromSuperview()
-                _headerViewController.removeFromParentViewController()
-                _headerViewController.didMove(toParentViewController: nil)
+                _headerViewController.removeFromParent()
+                _headerViewController.didMove(toParent: nil)
             }
             
             if let headerViewController = newValue {
-                headerViewController.willMove(toParentViewController: self)
-                addChildViewController(headerViewController)
+                headerViewController.willMove(toParent: self)
+                addChild(headerViewController)
                 
                 //Set parallaxHeader view
                 objc_setAssociatedObject(headerViewController,
@@ -51,7 +51,7 @@ import ObjectiveC
                                          .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
                 
                 scrollView.parallaxHeader.view = headerViewController.view
-                headerViewController.didMove(toParentViewController: self)
+                headerViewController.didMove(toParent: self)
             }
         }
     }
@@ -60,15 +60,15 @@ import ObjectiveC
     public var childViewController: UIViewController? {
         willSet {
             if let _childViewController = childViewController, _childViewController.parent == self {
-                _childViewController.willMove(toParentViewController: nil)
+                _childViewController.willMove(toParent: nil)
                 _childViewController.view.removeFromSuperview()
-                _childViewController.removeFromParentViewController()
-                _childViewController.didMove(toParentViewController: nil)
+                _childViewController.removeFromParent()
+                _childViewController.didMove(toParent: nil)
             }
             
             if let childViewController = newValue {
-                childViewController.willMove(toParentViewController: self)
-                addChildViewController(childViewController)
+                childViewController.willMove(toParent: self)
+                addChild(childViewController)
                 
                 //Set UIViewController's parallaxHeader property
                 objc_setAssociatedObject(childViewController,
@@ -76,7 +76,7 @@ import ObjectiveC
                                          scrollView.parallaxHeader,
                                          .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
                 scrollView.addSubview(childViewController.view)
-                childViewController.didMove(toParentViewController: self)
+                childViewController.didMove(toParent: self)
             }
         }
     }
