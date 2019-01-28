@@ -18,8 +18,9 @@ class UITableViewExample: UITableViewController, DMParallaxHeaderDelegate {
         
         // Parallax Header
         tableView.parallaxHeader.view = headerView // You can set the parallax header view from the floating view
+        tableView.parallaxHeader.extendsUnderNavigationBar = false
         tableView.parallaxHeader.height = 300
-        tableView.parallaxHeader.mode = .fill
+        tableView.parallaxHeader.mode = .top
         tableView.parallaxHeader.minimumHeight = 20
         tableView.parallaxHeader.delegate = self
     }

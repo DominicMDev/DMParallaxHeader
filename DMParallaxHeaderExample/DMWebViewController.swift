@@ -12,13 +12,15 @@ import DMParallaxHeader
 
 class DMWebViewController: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var webView: UIWebView!
+//    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let request = URLRequest(url: URL(string: "https://dribbble.com/search?q=spaceship")!)
-        webView.load(request)
+        webView.loadRequest(request)
+//        webView.load(request)
     }
     
     @IBAction func back(_ sender: AnyObject) {

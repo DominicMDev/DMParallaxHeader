@@ -19,6 +19,9 @@ class DMParallaxView: UIView {
         defer { super.willMove(toSuperview: newSuperview) }
         guard let superView = self.superview as? UIScrollView else { return }
         superView.removeObserver(parent, forKeyPath: #keyPath(UIScrollView.contentOffset), context: &DMParallaxView.KVOContext)
+        if #available(*, iOS 10) {
+            superView.removeObserver(parent, forKeyPath: #keyPath(UIScrollView.contentInset), context: &DMParallaxView.KVOContext)
+        }
     }
     
     override func didMoveToSuperview() {
@@ -27,6 +30,11 @@ class DMParallaxView: UIView {
         superView.addObserver(parent,
                               forKeyPath: #keyPath(UIScrollView.contentOffset),
                               context: &DMParallaxView.KVOContext)
+        if #available(*, iOS 10) {
+            superView.addObserver(parent,
+                                  forKeyPath: #keyPath(UIScrollView.contentInset),
+                                  context: &DMParallaxView.KVOContext)
+        }
     }
 }
 
@@ -36,11 +44,26 @@ open class DMParallaxHeader: NSObject {
     /*
      * MARK: - Instance Properties
      */
+    private var _extendsUnderNavigationBar: Bool = true
+    
+    /// Extends the parallax header under the navigation bar.
+    /// - Important: This is obsoleted in iOS 11.
+    @available(iOS, obsoleted: 11) public var extendsUnderNavigationBar: Bool {
+        @available(iOS, obsoleted: 11)
+        get { return _extendsUnderNavigationBar }
+        @available(iOS, obsoleted: 11)
+        set { _extendsUnderNavigationBar = newValue }
+    }
+    
+    private var setContentInset: CGFloat?
     
     weak var scrollView: UIScrollView! {
         didSet {
             guard scrollView !== oldValue else { return }
-            adjustScrollViewTopInset(scrollView.contentInset.top + height)
+            setContentInset = nil
+            let inset = scrollView.contentInset.top + height
+            adjustScrollViewTopInset(inset)
+            setContentInset = inset
             scrollView.addSubview(contentView)
             layoutContentView()
             isObserving = true
@@ -76,7 +99,10 @@ open class DMParallaxHeader: NSObject {
     @IBInspectable public var height: CGFloat = 0 {
         didSet {
             if height != oldValue {
-                adjustScrollViewTopInset(scrollView.contentInset.top - oldValue + height)
+                setContentInset = nil
+                let inset = scrollView.contentInset.top - oldValue + height
+                adjustScrollViewTopInset(inset)
+                setContentInset = inset
                 updateConstraints()
                 layoutContentView()
             }
@@ -194,6 +220,7 @@ open class DMParallaxHeader: NSObject {
         
         inset.top = top
         scrollView.contentInset = inset
+        
     }
     
     /*
@@ -205,6 +232,15 @@ open class DMParallaxHeader: NSObject {
         if context == &DMParallaxView.KVOContext {
             if keyPath == #keyPath(UIScrollView.contentOffset) {
                 layoutContentView()
+            }
+            if #available(*, iOS 10) {
+                guard extendsUnderNavigationBar else { return }
+                if keyPath == #keyPath(UIScrollView.contentInset) {
+                    guard let newInset = (object as? UIScrollView)?.contentInset.top else { return }
+                    if let inset = setContentInset, newInset != inset {
+                        adjustScrollViewTopInset(inset)
+                    }
+                }
             }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
