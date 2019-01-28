@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DMParallaxHeader'
-  s.version          = '2.1.0'
+  s.version          = '2.2.0'
   s.swift_version    = '4.2'
   s.summary          = 'Simple parallax header for UIScrollView.'
   s.description      = <<-DESC
